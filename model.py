@@ -50,7 +50,7 @@ class Classifier(nn.Module):
         return self.model(x)
     
 
-model = Classifier(num_classes=4)
-x = torch.randn(1, 3, 227, 227)
-y = model(x)
-print(y.shape)  # should be [1, 4]
+print("Torch version:", torch.__version__)
+print("CUDA available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
