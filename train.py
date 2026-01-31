@@ -69,11 +69,6 @@ for epoch in range(num_epochs):
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
-    train_loss = running_loss / len(train_loader)
-    train_acc = 100 * correct / total
-        
-    # print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
-
     model.eval()
     val_correct = 0
     val_total = 0
@@ -84,18 +79,16 @@ for epoch in range(num_epochs):
             labels = labels.to(device)
 
             outputs = model(images)
-            # print(outputs[0])
             _, predicted = torch.max(outputs, 1)
 
             val_total += labels.size(0)
             val_correct += (predicted == labels).sum().item()
-            # print(labels.min(), labels.max(), labels.dtype)
-    val_acc = 100 * val_correct / val_total
-    
 
-    print(
-        f"Epoch [{epoch+1}/{num_epochs}] "
-        f"Loss: {train_loss:.4f} "
-        f"Train Acc: {train_acc:.2f}% "
-        f"Val Acc: {val_acc:.2f}%")
+    # Calculate accuracy and loss to print after each epoch
+    # Helps to know when to stop early in case of overfitting
+    val_acc = 100 * val_correct / val_total
+    train_loss = running_loss / len(train_loader)
+    train_acc = 100 * correct / total
+
+    print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {train_loss:.4f} Train Acc: {train_acc:.2f}% Val Acc: {val_acc:.2f}%")
 
