@@ -1,6 +1,12 @@
 # Ignore dataset
 data/
 
+# Ignore saved model
+tomjerry.pth 
+
+# Ignore saved metrics
+metrics.npz
+
 # Ignore Python cache
 __pycache__/
 *.pyc
