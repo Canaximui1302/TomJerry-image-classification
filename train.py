@@ -42,8 +42,14 @@ optimizer = torch.optim.Adam(
     lr = 1e-4
 )
 
+# Number of training epochs
 num_epochs = 5
 
+# Arrays to store metrics for visualization
+training_losst_array = []
+training_accuracy_array = []
+
+# Traning loop
 for epoch in range(num_epochs):
     model.train()  # Set model to training mode
     running_loss = 0.0
@@ -89,6 +95,9 @@ for epoch in range(num_epochs):
     val_acc = 100 * val_correct / val_total
     train_loss = running_loss / len(train_loader)
     train_acc = 100 * correct / total
+
+    training_losst_array.append(train_loss)
+    training_accuracy_array.append(train_acc)
 
     print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {train_loss:.4f} Train Acc: {train_acc:.2f}% Val Acc: {val_acc:.2f}%")
 
