@@ -101,3 +101,12 @@ for epoch in range(num_epochs):
 
     print(f"Epoch [{epoch+1}/{num_epochs}] Loss: {train_loss:.4f} Train Acc: {train_acc:.2f}% Val Acc: {val_acc:.2f}%")
 
+
+
+# Save the model's trained parameters 
+torch.save(model.state_dict(), "tomjerry.pth")
+print("Model saved!")
+
+# Save the metrics for visualization
+np.savez("metrics.npz", train_losses=training_losst_array, train_accuracies=training_accuracy_array)
+print("Metrics saved!")
