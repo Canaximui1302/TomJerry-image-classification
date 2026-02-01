@@ -43,7 +43,7 @@ optimizer = torch.optim.Adam(
 )
 
 # Number of training epochs
-num_epochs = 15
+num_epochs = 35
 
 # Arrays to store metrics for visualization
 training_losst_array = []
