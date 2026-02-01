@@ -10,7 +10,7 @@ class Classifier(nn.Module):
     def __init__(self, num_classes = 4):
         super(Classifier, self).__init__()
 
-        self.model = nn.Sequential(
+        self.convolutionallayers = nn.Sequential(
 
             nn.Conv2d(3, 64, kernel_size=11, stride=4),
             nn.ReLU(inplace = True),
@@ -31,8 +31,10 @@ class Classifier(nn.Module):
             nn.Conv2d(384, 256, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
 
-            nn.MaxPool2d(3, stride=2),
+            nn.MaxPool2d(3, stride=2)
+        )
 
+        self.fullyconnectedlayers = nn.Sequential(
             nn.Flatten(),
             nn.Linear(256 * 6 * 6, 4096),
             nn.ReLU(inplace=True),
@@ -47,7 +49,9 @@ class Classifier(nn.Module):
         )
 
     def forward(self, x):
-        return self.model(x)
+        x = self.convolutionallayers(x)
+        x = self.fullyconnectedlayers(x)
+        return x
     
 # Sanity check
 """
