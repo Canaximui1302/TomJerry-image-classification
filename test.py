@@ -3,9 +3,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-import matplotlib.pyplot as plt
-from torchvision import datasets, transforms
+from torchvision import transforms
 from model import Classifier
+from PIL import Image
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
