@@ -28,7 +28,8 @@ transform = transforms.Compose([transforms.Resize((227, 227)),
 
 class_names = ['jerry', 'tom', 'none', 'both']  # adjust if needed
 
-img = Image.open("test_img/tom1.jpg").convert("RGB")
+
+img = Image.open("test_img/none2.jpg").convert("RGB")
 img = transform(img)
 img = img.unsqueeze(0)
 img = img.to(device)
@@ -36,10 +37,10 @@ img = img.to(device)
 
 with torch.inference_mode():
     res = model(img)
-    #res = model.fullyconnectedlayers(res)
     prob = F.softmax(res, dim=1)
     preds = prob.argmax(dim=1)
     print(class_names[preds.item()])
+    print(prob)
 
 
 
