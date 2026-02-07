@@ -12,6 +12,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = Classifier()
 model.to(device)
 
+# Load saved parameters
 model.load_state_dict(torch.load("tomjerry.pth", weights_only=True))
 model.eval()
 
@@ -20,21 +21,22 @@ optimizer = torch.optim.Adam(
     lr = 1e-4
 )
 
+# Define the same transformation as when training
 transform = transforms.Compose([transforms.Resize((227, 227)),
                                  transforms.ToTensor(),
                                  transforms.Normalize([0.5, 0.5, 0.5],
                                                      [0.5, 0.5, 0.5])])
 
 
-class_names = ['jerry', 'tom', 'none', 'both']  # adjust if needed
+class_names = ['jerry', 'tom', 'none', 'both']
 
-
-img = Image.open("test_img/none2.jpg").convert("RGB")
+# Change image file name to make inference
+img = Image.open("test_img/jerry3.jpg").convert("RGB")
 img = transform(img)
 img = img.unsqueeze(0)
 img = img.to(device)
 
-
+# Code to predict on single image
 with torch.inference_mode():
     res = model(img)
     prob = F.softmax(res, dim=1)
