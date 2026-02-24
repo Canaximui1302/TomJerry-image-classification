@@ -18,16 +18,16 @@ In order to train the model, you need to download the dataset and organize the f
 
 This project uses a Conda environment defined in `environment.yml`.
 
-### Create environment
+### Create & activate environment
 
 ```bash
 conda env create -f environment.yml
+conda activate tomjerry
 ```
 
-### Activate environment
-
+### Update environment (if needed)
 ```bash
-conda activate tomjerry
+conda env update -f environment.yml --prune
 ```
 
 
