@@ -12,6 +12,24 @@ The dataset is a folder containing frames cut from the animated series Tom and J
 https://www.kaggle.com/datasets/balabaskar/tom-and-jerry-image-classification
 
 In order to train the model, you need to download the dataset and organize the folders as below:
+```
+project
+│   README.md
+│   file001.txt    
+│
+└───folder1
+│   │   file011.txt
+│   │   file012.txt
+│   │
+│   └───subfolder1
+│       │   file111.txt
+│       │   file112.txt
+│       │   ...
+│   
+└───folder2
+    │   file021.txt
+    │   file022.txt
+```
 
 
 ## Environment Setup
