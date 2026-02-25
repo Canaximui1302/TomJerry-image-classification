@@ -1,6 +1,6 @@
-# TomJerry_classification
+# Image classifier for Tom and Jerry frames
 
-## Files
+## Content
 
 This project implements a toy model using AlexNet architecture for image classification. The model is defined and trained from scratch for learning purpose.
 The file for testing model's prediction is `src/test.py` and the training loop is defined in `src/train.py`.
