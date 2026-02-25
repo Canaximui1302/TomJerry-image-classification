@@ -2,8 +2,21 @@
 
 ## Files
 
-This project implements a toy model using AlexNet architecture for image classification. The model is defined and trained from scratch in `src/model.py`.
+This project implements a toy model using AlexNet architecture for image classification. The model is defined and trained from scratch for learning purpose.
 The file for testing model's prediction is `src/test.py` and the training loop is defined in `src/train.py`.
+
+Overview on the content of the repository:
+```
+TomJerry-image-classification/
+
+- `src/` — model architecture, training and evaluation scripts  
+- `data/` — dataset and annotation files  
+- `test_img/` — custom images for inference testing  
+- `notebook.ipynb` — experimentation and visualization  
+- `environment.yml` — Conda environment configuration  
+- `README.md` — project documentation  
+- `LICENSE` — license information  
+```
 
 ## Data
 
@@ -13,22 +26,28 @@ https://www.kaggle.com/datasets/balabaskar/tom-and-jerry-image-classification
 
 In order to train the model, you need to download the dataset and organize the folders as below:
 ```
-project
-│   README.md
-│   file001.txt    
+TomJerry-image-classification/
 │
-└───folder1
-│   │   file011.txt
-│   │   file012.txt
-│   │
-│   └───subfolder1
-│       │   file111.txt
-│       │   file112.txt
-│       │   ...
-│   
-└───folder2
-    │   file021.txt
-    │   file022.txt
+├── README.md
+├── LICENSE
+├── environment.yml
+├── notebook.ipynb
+│
+├── src/
+│
+├── test_img/
+│
+└── data/
+    ├── tom_jerry_dataset/
+    │   └── tom_and_jerry/
+    │       ├── jerry/
+    │       ├── tom/
+    │       ├── tom_jerry_0/
+    │       └── tom_jerry_1/
+    │
+    ├── challenges.csv
+    └── ground_truth.csv
+
 ```
 
 
@@ -47,6 +66,8 @@ conda activate tomjerry
 ```bash
 conda env update -f environment.yml --prune
 ```
+
+## Train the toy model
 
 
 
