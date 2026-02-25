@@ -5,10 +5,9 @@
 This project implements a toy model using AlexNet architecture for image classification. The model is defined and trained from scratch for learning purpose.
 The file for testing model's prediction is `src/test.py` and the training loop is defined in `src/train.py`.
 
-Overview on the content of the repository:
-```
-TomJerry-image-classification/
+The repository includes:
 
+`TomJerry-image-classification/`
 - `src/` — model architecture, training and evaluation scripts  
 - `data/` — dataset and annotation files  
 - `test_img/` — custom images for inference testing  
@@ -16,7 +15,7 @@ TomJerry-image-classification/
 - `environment.yml` — Conda environment configuration  
 - `README.md` — project documentation  
 - `LICENSE` — license information  
-```
+
 
 ## Data
 
