@@ -68,6 +68,17 @@ conda env update -f environment.yml --prune
 
 ## Train the toy model
 
+To start training, simply execute the training script and wait.
+```bash
+cd src
+python train.py
+```
+
+After the model is trained, you can try making inferences using `test.py`, this file will print the predicted label of the test data
+as well as the probability of the output.
+```bash
+python test.py
+```
 
 
 
